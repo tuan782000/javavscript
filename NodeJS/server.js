@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import routes from "./src/routes/index.js";
 
 dotenv.config();
 const app = express();
@@ -23,9 +24,10 @@ app.use(
 // Tạo 1 route
 // req: phía user (client) gửi
 // res: phía server phản hồi
-app.use("/", (req, res) => {
-  return res.send("Server on");
-});
+// app.use("/", (req, res) => {
+//   return res.send("Server on");
+// });
+app.use("/", routes);
 
 const PORT = process.env.PORT || 8888;
 
